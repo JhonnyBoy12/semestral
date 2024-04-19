@@ -1,7 +1,6 @@
 body{
     background-color:#ece9e9;
     font-family: sans-serif;
-    
 }
 
 .margen{
@@ -28,7 +27,7 @@ body{
 }
 .footer-links{
     width: 25%;
-    padding: 0 15px;
+    padding: 0 8px;
 }
 .footer-links h4 {
     font-size: 20px;
@@ -68,4 +67,18 @@ body{
 }
 #texto{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.catalogo{
+    padding: 5px 0 30px 0;
+    background: #2d53ff;
+    
+
+
+
+}
+.contacto{
+    background: #3b5fff;
+    
+    
 }
