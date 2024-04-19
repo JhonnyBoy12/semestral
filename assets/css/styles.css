@@ -1,7 +1,7 @@
 body{
     background-color:#ece9e9;
     font-family: sans-serif;
-    text-transform: capitalize;
+    
 }
 
 .margen{
@@ -61,4 +61,11 @@ body{
     border-radius: 50%;
     color: #ffffff;
     transition: all .3s ease;
+}
+#columna1{
+    display: flex;
+    justify-content: center;
+}
+#texto{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
