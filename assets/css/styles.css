@@ -71,14 +71,22 @@ body{
 
 .catalogo{
     padding: 5px 0 30px 0;
-    background: #2d53ff;
+    
     
 
 
 
 }
-.contacto{
-    background: #3b5fff;
-    
-    
+
+#tarjeta2{
+    display: flex;
+    justify-content: center;
+}
+#a2{
+    display: flex;
+    justify-content: center;
+}
+#a3{
+    display: flex;
+    justify-content: center;
 }
