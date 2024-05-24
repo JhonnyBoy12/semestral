@@ -1,12 +1,13 @@
 export const getComics = async()=> {
-    fetch('https://apicomics.onrender.com/')
-    .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
+    try{
+
+        const response = await fetch("https://apicomics.onrender.com");
+        const data = await response.json();
+
+        return data.results;
+
+    }catch(error){
+        console.log(`El error es: ${error}`);
     }
-    return response.json();
-  })
-  .then(data => console.log(data))
-  .catch(error => console.error('There has been a problem with your fetch operation:', error));
 
 }
