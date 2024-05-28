@@ -3,15 +3,104 @@ body{
     font-family: sans-serif;
 }
 
-.margen{
-    display: flex;
-    justify-content: space-around;
+ /*--------slider-------->*/
+ .slider-img {
+    height: 600px; 
+    object-fit: cover; 
+  }
 
-}
-.subs{
-    background-color: aliceblue;
-    padding-top: 4px;
-}
+  .custom-caption {
+    top: 20%;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .custom-caption h1 {
+    font-size: 5.7rem; 
+    font-weight: bold;
+    color: #003392;
+    line-height: normal;
+  }
+
+  .custom-caption p {
+    font-size: 3rem; 
+    
+    color: #ffffff;
+    line-height: normal;
+  }
+
+  @media (max-width: 767.98px) {
+    .custom-caption h1 {
+      font-size: 2.5rem;
+    }
+    .custom-caption p {
+      font-size: 1.2rem;
+    }
+  }
+
+
+ 
+  
+  .feature-item {
+    text-align: center;
+  }
+  .feature-item img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  .feature-item h5 {
+    font-size: 1.75rem;
+    margin-bottom: 10px;
+  }
+  .feature-item p {
+    font-size: 1rem;
+  }
+  .feature-item .divider {
+    width: 50px;
+    height: 2px;
+    background-color: #000;
+    margin: 0 auto 10px;
+  }
+
+.subs {
+    width: 100%;
+  }
+  
+  .margen {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title styles */
+  .margen h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .margen h4 {
+    font-size: 1.5em;
+    margin-bottom: 1px;
+    color: #666;
+  }
+  
+  /* Badge styles */
+  .badge.text-bg-secondary {
+    background-color: #ff4081;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+ 
+  
+  
+  
 .footer{
     background-color: gray;
 }
@@ -71,6 +160,7 @@ body{
 
 .catalogo{
     padding: 5px 0 30px 0;
+    background-color: #333;
     
     
 
@@ -90,3 +180,52 @@ body{
     display: flex;
     justify-content: center;
 }
+
+
+
+
+/*CONTACTO------------------------------------------------*/
+.contact-header {
+  background-color: gray;
+  background-size: cover;
+  color: white;
+  padding: 30px 30px;
+  text-align: center;
+}
+.contact-header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+.contact-header p {
+  font-size: 1.5rem;
+}
+.contact-section {
+  padding: 50px 0;
+}
+.contact-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+.contact-card:hover {
+  transform: translateY(-10px);
+}
+.contact-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.contact-card h3 {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  color: #333;
+}
+.contact-card p {
+  color: #666;
+}
+
+
+

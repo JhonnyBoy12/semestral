@@ -35,56 +35,97 @@
     
     
         
-    <!--------slider-------->
-    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="1500">
-            <img src="./assets/img/1.jpg" class="d-block w-100" alt="dc slide">
-          </div>
-          <div class="carousel-item active" data-bs-interval="1500">
-            <img src="./assets/img/2.jpg" class="d-block w-100" alt="marvel slide">
-          </div>
-          <div class="carousel-item active" data-bs-interval="1500">
-            <img src="./assets/img/3.jpg" class="d-block w-100" alt="mangas slide">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+        <!--------slider-------->
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="1500">
+      <img src="./assets/img/1.jpg" class="d-block w-100 slider-img" alt="dc slide">
+      <div class="carousel-caption d-none d-md-block custom-caption">
+        <h1 class="display-3">Bienvenidos a Comics Sharingan</h1>
+        <p class="lead">Tu tienda de cómics DC, Marvel y mangas exclusivos Mucha variedad!!</p>
       </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="1500">
+      <img src="./assets/img/2.jpg" class="d-block w-100 slider-img" alt="marvel slide">
+      <div class="carousel-caption d-none d-md-block custom-caption">
+        <h1 class="display-3">Bienvenidos a Comics Sharingan</h1>
+        <p class="lead">Tu tienda de cómics DC, Marvel y mangas.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="1500">
+      <img src="./assets/img/3.jpg" class="d-block w-100 slider-img" alt="mangas slide">
+      <div class="carousel-caption d-none d-md-block custom-caption">
+        <h1 class="display-3">Bienvenidos a Comics Sharingan</h1>
+        <p class="lead">Tu tienda de cómics DC, Marvel y mangas.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
-      <br>
-      <br>
-      <br>
-      <br>  
+<!-- DISEÑO -->
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-3 feature-item">
+        <img src="./assets/img/escudo.png" alt="Icono de Envío Gratis">
+        <h5>Envío Gratis</h5>
+        <div class="divider"></div>
+        <p>Por compras sobre $30.000.<br></p>
+      </div>
+      <div class="col-md-3 feature-item">
+        <img src="./assets/img/batmanlogo.png" alt="Icono de Envíos a todo Chile">
+        <h5>Envíos a todo Chile</h5>
+        <div class="divider"></div>
+        <p>Pronto tienda fisica.<br>Empaquetado seguro para tus cómics.</p>
+      </div>
+      <div class="col-md-3 feature-item">
+        <img src="./assets/img/logospider.png" alt="Icono de Seguimiento en Línea">
+        <h5>Variedad</h5>
+        <div class="divider"></div>
+        <p>Escoge tu comic favorito diversa variedad entre Mangas, DC y Marvel.</p>
+      </div>
+      <div class="col-md-3 feature-item">
+        <img src="./assets/img/logoironman.png" alt="Icono de Catálogo">
+        <h5>Ingresa al Catálogo</h5>
+        <div class="divider"></div>
+        <p>Para ver todos los cómics.<br><a href="./catologo.html">Catalogo</a></p>
+      </div>
+    </div>
+  </div>
+
+
+
       <!--------Comictitulo-------->
 
       <div class="row">
         <div class="subs">
           <div class="margen">
             <h1>Recien llegados <span class="badge text-bg-secondary">Nuevos</span></h1>
-            <h1></h1>
-            <h1></h1>
+            
           </div>
           <div class="margen">
-            <h4>Ultimos agregado al stock</h4>
-            <h1></h1>
-            <h1></h1>
+            <h4>Últimos agregados al stock</h4>
+            
           </div>
         </div>
       </div>
+      
 
-       <!--------tarjetas-------->
+       <!--------tarjetas---->
       <div class="row mx-auto mt-5 w-75">
         <div class="row" id="comicsRow">
         </div>  
       </div>
-      
+
+
       <br>
       <br>
       <!--------Comictitulo--------> 
@@ -169,7 +210,7 @@
 
       <!--------tarjetas-------->
       <div class="row mx-auto mt-5 w-75">
-        <div class="col" id="tarjeta2">
+        <div class="col" id="">
           <div class="card" style="width: 15rem;">
             <img src="./assets/img/goku.jpg" class="card-img-top" alt="...">
             <div class="card-body">
@@ -180,7 +221,7 @@
           </div>
         </div>
        
-        <div class="col" id="a2">
+        <div class="col" id="">
           <div class="card" style="width: 15rem;">
             <img src="./assets/img/kaisen.jpg" class="card-img-top" alt="..."> 
             <div class="card-body">
@@ -191,7 +232,7 @@
           </div>
         </div>
 
-        <div class="col" id="a3">
+        <div class="col" id="">
           <div class="card" style="width: 15rem;">
             <img src="./assets/img/gon.jpg" class="card-img-top" alt="...">
             <div class="card-body">
