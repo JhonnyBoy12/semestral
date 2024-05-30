@@ -1,36 +1,6 @@
 import { getComics } from "./getComics.js";
+import { enviarDatos } from "./detallesComic.js";
  
-const enviarDatos =(name,precio,imagen)=> {
-
-    const rutaArchivoHTML = "../comics.html";
-
-    fetch(rutaArchivoHTML)
-        .then(response => response.text())
-        .then(( html ) => {
-
-            const parser= new DOMParser();
-            const doc = parser.parseFromString(html,"text/html");
-
-            const imagePage = doc.getElementById("imagenPage");
-            imagePage.src = imagen;
-
-            const namePage = doc.getElementById("namePage");
-            namePage.textContent = `${name}`;
-
-            const speciesPage = doc.getElementById("precioPage");
-            speciesPage.textContent = `${precio}`;
-
-
-            const nuevoHTML = new XMLSerializer().serializeToString(doc);
-
-            document.body.innerHTML = nuevoHTML;
-        })
-        .catch((error)=> {
-            console.log(`El error es: ${error}`);
-        })
-}
-
-
 
 /*-------MAP-MUESTEA COMPLETA--------*/
 const createCard = (result = [], containerId) => {
@@ -42,7 +12,7 @@ const createCard = (result = [], containerId) => {
     }
 
     result.map((comic) => {
-        const { series, name, precio, imagen } = comic;
+        const { series, id, name, precio, tipo, imagen, comentario,editorial,autor,fecha,paginas,tamaño,formato } = comic;
 
         const divCol = document.createElement("div");
         divCol.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2", "mb-4");
@@ -70,9 +40,8 @@ const createCard = (result = [], containerId) => {
         btnVer.href = "#";  
         btnVer.classList.add("btn", "btn-primary");
         btnVer.textContent = "Ver más";
-        btnVer.addEventListener("click", (event) => {
-            event.preventDefault();
-            enviarDatos(series, name, precio, imagen);
+        btnVer.addEventListener("click", () => {
+            enviarDatos(series, id, name, precio, tipo, imagen, comentario,editorial,autor,fecha,paginas,tamaño,formato);
         });
 
         divBody.appendChild(title);
@@ -99,7 +68,10 @@ const filtroSerie2 = (result = []) => {
 const filtroSerie3 = (result = []) => {
     return result.filter(comic => comic.series === 3);
 };
-
+ /*-------FUNCION PARA TENER LOS ULTIMOS 6 COMICS---------*/
+const getUltimosComic = (comics) => {
+    return comics.slice(-6).reverse(); 
+};
 
 /*---------------------*/
 
@@ -110,8 +82,19 @@ getComics()
         console.log("Datos recibidos: ", data); 
 
         //Crear tarjeta todo los comics
-        createCard(data,"comicsRowfull")
+        createCard(data,"comicsRowfull");
+
+
+
+        //---------------------
+        // Obtener los últimos 6 cómics + CREATECARD
+        const ultimosComic = getUltimosComic(data);
+        //CREAR CARDS
+        createCard(ultimosComic,"ultimosAgregados")
+        //----------------------
         
+
+
         //Filtrar comics DC
         const filtroComics1 = filtroSerie1(data);
         createCard(filtroComics1, "comicsRowdc");

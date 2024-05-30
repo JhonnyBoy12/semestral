@@ -1,7 +1,7 @@
-export const getComics = async()=> {
+export const getFiguras = async()=> {
     try{
 
-        const response = await fetch("https://apicomics.onrender.com");
+        const response = await fetch("https://apifiguras.onrender.com");
         const data = await response.json();
         console.log(data);
         return data;
@@ -10,4 +10,4 @@ export const getComics = async()=> {
         console.log(`El error es: ${error}`);
     }
 
-}
+};
