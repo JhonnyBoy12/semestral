@@ -1,3 +1,5 @@
+
+/*--------CUERPOPRINCIPAL----*/
 body{
     background-color:#ece9e9;
     font-family: sans-serif;
@@ -38,12 +40,13 @@ body{
       font-size: 1.2rem;
     }
   }
-
+/*---------------->*/
 
  
-  
+/*--------DISEÑO INTERMEDIO-------*/  
   .feature-item {
     text-align: center;
+    
   }
   .feature-item img {
     width: 120px;
@@ -63,6 +66,10 @@ body{
     background-color: #000;
     margin: 0 auto 10px;
   }
+  /*----------------------------*/
+
+
+  /*----------Comictitulo----------*/  
 
 .subs {
     width: 100%;
@@ -75,8 +82,7 @@ body{
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
-  /* Title styles */
+
   .margen h1 {
     font-size: 2em;
     margin-bottom: 10px;
@@ -89,18 +95,17 @@ body{
     color: #666;
   }
   
-  /* Badge styles */
   .badge.text-bg-secondary {
     background-color: #ff4081;
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
   }
-  
+  /*----------------------------*/
  
   
   
-  
+  /*----------Footer---------*/
 .footer{
     background-color: gray;
 }
@@ -134,6 +139,7 @@ body{
     margin-bottom:  15px;
     transition: all .2s ease;
 }
+
 .footer-links ul li a:hover{
     color: #ffffff;
     padding-left: 6px;
@@ -150,6 +156,10 @@ body{
     color: #ffffff;
     transition: all .3s ease;
 }
+/*----------------------------*/
+
+
+/*----------COMICS DISTINTOS---------*/
 #columna1{
     display: flex;
     justify-content: center;
@@ -159,14 +169,27 @@ body{
 }
 
 .catalogo{
-    padding: 5px 0 30px 0;
-    background-color: #333;
-    
-    
-
-
-
+    padding: 15px 0 30px 0;
+    background: url('../img/otaku.jpg') center center fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    margin: 0;
+    position: relative;
 }
+.catalogo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  filter: blur(3.5px); 
+  z-index: 0; /* Para colocarlo atras de las cosas*/
+}
+
 
 #tarjeta2{
     display: flex;
@@ -180,11 +203,10 @@ body{
     display: flex;
     justify-content: center;
 }
+/*----------------------------*/
 
 
-
-
-/*CONTACTO------------------------------------------------*/
+/*-----------CONTACTO-----------------*/
 .contact-header {
   background-color: gray;
   background-size: cover;
@@ -226,6 +248,38 @@ body{
 .contact-card p {
   color: #666;
 }
+/*----------------------------*/
 
 
+/*--------Tarjetas-----------*/
 
+.container1 {
+  padding-left: 75px;
+  padding-right: 75px;
+  padding-bottom: 30px;
+}
+.card-img-top {
+  object-fit: cover;
+  height: 350px; /* Ajusta esta altura según sea necesario */
+}
+
+.card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.card-text {
+  color: #555;
+}
+
+/*----------------------------*/

@@ -3,8 +3,8 @@ export const getComics = async()=> {
 
         const response = await fetch("https://apicomics.onrender.com");
         const data = await response.json();
-
-        return data.results;
+        console.log(data);
+        return data;
 
     }catch(error){
         console.log(`El error es: ${error}`);

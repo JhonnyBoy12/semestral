@@ -32,23 +32,26 @@ const enviarDatos =(name,precio,imagen)=> {
 
 
 
+/*-------MAP-MUESTEA COMPLETA--------*/
+const createCard = (result = [], containerId) => {
+    let comicsRow = document.getElementById(containerId);
 
-const createCard = (result = [])=>{
-    let comicsRow = document.getElementById("comicsRow");
-    result.map((result)=> {
+    if(!comicsRow){
+        console.error(`${containerId} no encontrado`);
+        return;
+    }
 
-        const {series, name, precio, imagen } = result;
-        
+    result.map((comic) => {
+        const { series, name, precio, imagen } = comic;
 
         const divCol = document.createElement("div");
-        divCol.classList.add("col", "mt-2");
-        
-    
+        divCol.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2", "mb-4");
+
         const card = document.createElement("div");
-        card.classList.add("card");
+        card.classList.add("card", "h-100");
 
         const img = document.createElement("img");
-        img.src = image;
+        img.src = imagen;
         img.alt = `Imagen de ${name}`;
         img.classList.add("card-img-top");
 
@@ -57,23 +60,23 @@ const createCard = (result = [])=>{
 
         const title = document.createElement("h5");
         title.classList.add("card-title");
-        title.textContent = `Nombre: ${name}`;
+        title.textContent = name;
 
         const subTitle = document.createElement("p");
         subTitle.classList.add("card-text");
-        subTitle.textContent = `Nombre: ${species}`;
+        subTitle.textContent = precio;
 
-        
-        const btnVer = document.createElement("button");
-        btnVer.classList.add("btn","btn-primary");
-        btnVer.textContent = "Ver detalles";
-        btnVer.addEventListener("click",()=> {
-            enviarDatos(id,name,precio,imagen);
-        })
-        
+        const btnVer = document.createElement("a");
+        btnVer.href = "#";  
+        btnVer.classList.add("btn", "btn-primary");
+        btnVer.textContent = "Ver más";
+        btnVer.addEventListener("click", (event) => {
+            event.preventDefault();
+            enviarDatos(series, name, precio, imagen);
+        });
+
         divBody.appendChild(title);
         divBody.appendChild(subTitle);
-        divBody.appendChild(subTitle2);
         divBody.appendChild(btnVer);
 
         card.appendChild(img);
@@ -81,13 +84,45 @@ const createCard = (result = [])=>{
 
         divCol.appendChild(card);
 
-        personajesRow.appendChild(divCol);
-
+        comicsRow.appendChild(divCol);
     });
-}
+};
+ /*-------FILTER DE SERIES: 1---------*/
+ const filtroSerie1 = (result = []) => {
+    return result.filter(comic => comic.series === 1);
+};
+/*-------FILTER DE SERIES: 2---------*/
+const filtroSerie2 = (result = []) => {
+    return result.filter(comic => comic.series === 2);
+};
+/*-------FILTER DE SERIES: 3---------*/
+const filtroSerie3 = (result = []) => {
+    return result.filter(comic => comic.series === 3);
+};
 
+
+/*---------------------*/
 
 getComics()
-    .then(data=> createCard(data))
-    .catch(error=> console.log(error));
+    .then(data => {
+
+        //Verificacion de data
+        console.log("Datos recibidos: ", data); 
+
+        //Crear tarjeta todo los comics
+        createCard(data,"comicsRowfull")
+        
+        //Filtrar comics DC
+        const filtroComics1 = filtroSerie1(data);
+        createCard(filtroComics1, "comicsRowdc");
+
+        //Filtrar comics Marvel
+        const filtroComics2 = filtroSerie2(data);
+        createCard(filtroComics2, "comicsRowmarvel");
+
+        //Filtrar comics Manga
+        const filtroComics3 = filtroSerie3(data);
+        createCard(filtroComics3, "comicsRowmanga");
+    })
+    .catch(error => console.log(error));
 
