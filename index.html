@@ -11,7 +11,7 @@
 <body>
 
     <!--------MENU-------->
-        <div class="text-center bg-body"><img src="./assets/img/logo2.jpg" alt="logo" width="150px"></div>
+        <div class="text-center bg-body"><a href="./index.html"><img src="./assets/img/logo2.jpg" alt="logo" width="150px"></a></div>
         <nav class="navbar navbar-expand-lg bg-body" id="navegador">
             <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,7 +23,7 @@
                     <a class="nav-link" aria-current="page" href="./index.html">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./catologo.html">Catalogo</a>
+                    <a class="nav-link" href="./catalogo.html">Catalogo</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#dc">DC</a>
@@ -84,31 +84,43 @@
 
 <!-- DISEÑO -->
 
-  <div class="container1 mt-5">
-    <div class="row">
+  <div class="container2" >
+    <div style="display: flex; justify-content: space-around;" class="row">
       <div class="col-md-3 feature-item">
-        <img src="./assets/img/escudo.png" alt="Icono de Envío Gratis">
-        <h5>Envío Gratis</h5>
-        <div class="divider"></div>
-        <p>Por compras sobre $30.000.<br></p>
+        <a href="./catalogo.html" class="linkd">
+        <div class="card h-100" style="padding-bottom:15px ;">
+          <div style="display: flex; justify-content: center; padding-top: 20px;">
+            <img src="./assets/img/escudo.png" alt="Icono de Envío Gratis">
+          </div>
+          <h5>Catalogo</h5>
+          <div class="divider"></div>
+          <p>¡Todos los comics publicados!</p>
+        </div>
+        </a>
       </div>
       <div class="col-md-3 feature-item">
-        <img src="./assets/img/batmanlogo.png" alt="Icono de Envíos a todo Chile">
+        <div class="card">
+          <a href="./contacto.html" class="linkd">
+          <div style="display: flex; justify-content: center; padding-top: 20px;">
+            <img src="./assets/img/logospider.png" alt="Icono de Envíos a todo Chile">
+          </div>
+        <h5>Contacto</h5>
+        <div class="divider"></div>
+        <p>¡Contactate con nosotros!</p>
+      </div>
+      </a>
+      </div>
+      <div class="col-md-3 feature-item">
+        <a href="./catalogoFiguras.html" class="linkd">
+        <div class="card h-100">
+          <div style="display: flex; justify-content: center; padding-top: 20px;">
+            <img src="./assets/img/batmanlogo.png" alt="Icono de Seguimiento en Línea">
+          </div>
         <h5>Compra figuras</h5>
         <div class="divider"></div>
-        <p>Tambien podras comprar figuras<br>Diferente tipos de <a href="./catalogoFiguras.html">Figuras</a></p>
+        <p>¡Encontraras distintos tipos de figuras!</p>
       </div>
-      <div class="col-md-3 feature-item">
-        <img src="./assets/img/logospider.png" alt="Icono de Seguimiento en Línea">
-        <h5>Variedad</h5>
-        <div class="divider"></div>
-        <p>Escoge tu comic favorito diversa variedad entre Mangas, DC y Marvel.</p>
-      </div>
-      <div class="col-md-3 feature-item">
-        <img src="./assets/img/logoironman.png" alt="Icono de Catálogo">
-        <h5>Ingresa al Catálogo</h5>
-        <div class="divider"></div>
-        <p>Para ver todos los cómics.<br><a href="./catologo.html">Catalogo</a></p>
+      </a>
       </div>
     </div>
   </div>
@@ -211,7 +223,7 @@
                     <ul>
                         <li><a href="./index.html">Inicio</a></li>
                         <li><a href="./contacto.html">Contacto</a></li>
-                        <li><a href="./catologo.html">Catalogo</a></li>
+                        <li><a href="./catalogo.html">Catalogo</a></li>
                         <li><a href="./catalogoFiguras.html">Figuras</a></li>
                         <li><a href="#dc">Comic DC</a></li>
                         <li><a href="#marvel">Comic Marvel</a></li>
@@ -234,7 +246,7 @@
                     </div>
                 </div>
                 <div class="footer-links">
-                  <img src="./assets/img/logo2.jpg" alt="logo" width="150px">
+                  <a href="./index.html"><img src="./assets/img/logo2.jpg" alt="logo" width="150px"></a>
               </div>
             </div>
         </div>        
