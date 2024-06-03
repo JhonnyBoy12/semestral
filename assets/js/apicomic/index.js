@@ -3,6 +3,10 @@ import { enviarDatos } from "./detallesComic.js";
  
 
 /*-------MAP-MUESTEA COMPLETA--------*/
+const verCarrito = document.getElementById("verCarrito");
+
+const modalContainer = document.getElementById("modal-container");
+let carrito = [];
 const createCard = (result = [], containerId) => {
     let comicsRow = document.getElementById(containerId);
 
@@ -54,6 +58,7 @@ const createCard = (result = [], containerId) => {
         divCol.appendChild(card);
 
         comicsRow.appendChild(divCol);
+
     });
 };
  /*-------FILTER DE SERIES: 1---------*/
@@ -106,6 +111,41 @@ getComics()
         //Filtrar comics Manga
         const filtroComics3 = filtroSerie3(data);
         createCard(filtroComics3, "comicsRowmanga");
+
     })
     .catch(error => console.log(error));
+
+/*-------Ver carrito---*/
+
+verCarrito.addEventListener("click", () =>{
+    const modalHeader = document.createElement("div");
+    modalHeader.className = "modal-header";
+    modalHeader.innerHTML = `
+    <h1 class ="modal-header-title">Carrito.</h1>
+    `;
+    modalContainer.append(modalHeader);
+
+    const modalbutton = document.createElement ("h3")
+    modalbutton.innerText = "x";
+    modalbutton.className = "modal-header-button";
+
+    modalbutton.addEventListener("click", ()=>{
+        modalContainer.style.display = "none";
+    })
+
+    modalHeader.append(modalbutton);
+
+});
+
+
+//set item local storage
+
+const saveLocal = () => {
+localStorage.setItem("carrito", JSON.stringify(carrito));
+};
+
+//get item local storage
+
+JSON.parse(localStorage.getItem("carrito"))
+
 

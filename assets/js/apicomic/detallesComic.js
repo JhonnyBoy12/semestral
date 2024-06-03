@@ -1,11 +1,10 @@
 
 
-
 export const enviarDatos = (series, id,name,precio,tipo,imagen,comentario,editorial,autor,fecha,paginas,tamaño,formato) => {
 
     console.log(`Esta bien la data ${tipo} y ${name}`);
 
-    const rutaArchivohtml = '../../comics.html';
+    const rutaArchivohtml = './comics.html';
 
     fetch(rutaArchivohtml)
         .then( response => response.text() )
@@ -47,10 +46,14 @@ export const enviarDatos = (series, id,name,precio,tipo,imagen,comentario,editor
             const nuevoHTML = new XMLSerializer().serializeToString(doc);
 
             document.body.innerHTML = nuevoHTML;
+
+            
     })
     .catch((error)=> {
         console.error(`Error al cargar los datos : ${error}`);
 
     });
+
+    
 
 }
