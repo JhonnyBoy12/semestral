@@ -1,4 +1,4 @@
-
+import { getComics } from "./getComics.js";
 
 export const enviarDatos = (series, id,name,precio,tipo,imagen,comentario,editorial,autor,fecha,paginas,tamaño,formato) => {
 
@@ -42,6 +42,20 @@ export const enviarDatos = (series, id,name,precio,tipo,imagen,comentario,editor
 
             const formatoPage = doc.getElementById('formatoPage');
             formatoPage.textContent = formato;
+
+            // DOM BOTON EN DETALLES
+            const btnAgregar = doc.createElement("button");
+            btnAgregar.classList.add("rounded-5", "w-50", "p-2", "fs-6");
+            btnAgregar.style.backgroundColor = "#7C7C7C";
+            btnAgregar.style.color = "white";
+            btnAgregar.textContent = "Agregar al carrito";
+            btnAgregar.addEventListener("click", () => {
+                agregarAlCarrito(id, name, precio, imagen);
+            });
+
+            const canastoComic = doc.getElementById('canastoComic');
+            canastoComic.appendChild(btnAgregar);
+            //......................................
 
             const nuevoHTML = new XMLSerializer().serializeToString(doc);
 

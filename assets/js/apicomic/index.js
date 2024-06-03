@@ -99,6 +99,7 @@ getComics()
         //----------------------
         
 
+        
 
         //Filtrar comics DC
         const filtroComics1 = filtroSerie1(data);
