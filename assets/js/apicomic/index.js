@@ -1,12 +1,9 @@
 import { getComics } from "./getComics.js";
-import { enviarDatos } from "./detallesComic.js";
+import { enviarDatos , createAddToCartButton} from "./detallesComic.js";
+
  
 
 /*-------MAP-MUESTEA COMPLETA--------*/
-const verCarrito = document.getElementById("verCarrito");
-
-const modalContainer = document.getElementById("modal-container");
-let carrito = [];
 const createCard = (result = [], containerId) => {
     let comicsRow = document.getElementById(containerId);
 
@@ -16,7 +13,7 @@ const createCard = (result = [], containerId) => {
     }
 
     result.map((comic) => {
-        const { series, id, name, precio, tipo, imagen, comentario,editorial,autor,fecha,paginas,tamaño,formato } = comic;
+        const { series, id, name, precio, tipo, imagen, comentario, editorial, autor, fecha, paginas, tamaño, formato } = comic;
 
         const divCol = document.createElement("div");
         divCol.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2", "mb-4");
@@ -45,7 +42,8 @@ const createCard = (result = [], containerId) => {
         btnVer.classList.add("btn", "btn-primary");
         btnVer.textContent = "Ver más";
         btnVer.addEventListener("click", () => {
-            enviarDatos(series, id, name, precio, tipo, imagen, comentario,editorial,autor,fecha,paginas,tamaño,formato);
+            enviarDatos(series, id, name, precio, tipo, imagen, comentario, editorial, autor, fecha, paginas, tamaño, formato);
+            createAddToCartButton(id, name, precio, imagen);
         });
 
         divBody.appendChild(title);
@@ -58,9 +56,10 @@ const createCard = (result = [], containerId) => {
         divCol.appendChild(card);
 
         comicsRow.appendChild(divCol);
-
     });
 };
+
+
  /*-------FILTER DE SERIES: 1---------*/
  const filtroSerie1 = (result = []) => {
     return result.filter(comic => comic.series === 1);
@@ -115,6 +114,7 @@ getComics()
 
     })
     .catch(error => console.log(error));
+
 
 /*-------Ver carrito---*/
 

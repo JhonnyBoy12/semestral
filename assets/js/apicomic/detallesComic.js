@@ -1,73 +1,65 @@
-import { getComics } from "./getComics.js";
+export const createAddToCartButton = (id, name, precio, imagen) => {
+    const button = document.createElement("button");
+    button.classList.add("rounded-5", "w-50", "p-2", "fs-6");
+    button.style.backgroundColor = "#7C7C7C";
+    button.style.color = "white";
+    button.textContent = "Agregar al carrito";
+    button.addEventListener("click", () => {
+        agregarAlCarrito(id, name, precio, imagen);
+    });
 
-export const enviarDatos = (series, id,name,precio,tipo,imagen,comentario,editorial,autor,fecha,paginas,tamaño,formato) => {
+    const canastoComic = document.getElementById('canastoComic');
+        canastoComic.innerHTML = ''; // Limpiar el contenido anterior
+        canastoComic.appendChild(button);
+    
+    
+};
 
+const agregarAlCarrito = (id, name, precio, imagen) => {
+    const comic = { id, name, precio, imagen };
+    console.log(`Comic agregado al carrito:`, comic);
+    console.log("el Jhonny se la come");
+    
+};
+
+
+export const enviarDatos = (series, id, name, precio, tipo, imagen, comentario, editorial, autor, fecha, paginas, tamaño, formato) => {
     console.log(`Esta bien la data ${tipo} y ${name}`);
 
     const rutaArchivohtml = './comics.html';
 
     fetch(rutaArchivohtml)
-        .then( response => response.text() )
+        .then(response => response.text())
         .then((html) => {
-
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
 
-            const imagePage = doc.getElementById('imagePage');
-            imagePage.src = imagen;
+            const updateElement = (id, value) => {
+                const element = doc.getElementById(id);
+                if (element) element.textContent = value;
+            };
 
-            const namePage = doc.getElementById('namePage');
-            namePage.textContent = name;
-
-            const precioPage = doc.getElementById('precioPage');
-            precioPage.textContent = precio;
-
-            const comentarioPage = doc.getElementById('comentarioPage');
-            comentarioPage.textContent = comentario;
-
-            const editorialPage = doc.getElementById('editorialPage');
-            editorialPage.textContent = editorial;
-
-            const autorPage = doc.getElementById('autorPage');
-            autorPage.textContent = autor;
-
-            const fechaPage = doc.getElementById('fechaPage');
-            fechaPage.textContent = fecha;
-
-            const paginasPage = doc.getElementById('paginasPage');
-            paginasPage.textContent = paginas;
-
-            const tamañoPage = doc.getElementById('tamañoPage');
-            tamañoPage.textContent = tamaño;
-
-            const formatoPage = doc.getElementById('formatoPage');
-            formatoPage.textContent = formato;
-
-            // DOM BOTON EN DETALLES
-            const btnAgregar = doc.createElement("button");
-            btnAgregar.classList.add("rounded-5", "w-50", "p-2", "fs-6");
-            btnAgregar.style.backgroundColor = "#7C7C7C";
-            btnAgregar.style.color = "white";
-            btnAgregar.textContent = "Agregar al carrito";
-            btnAgregar.addEventListener("click", () => {
-                agregarAlCarrito(id, name, precio, imagen);
-            });
-
-            const canastoComic = doc.getElementById('canastoComic');
-            canastoComic.appendChild(btnAgregar);
-            //......................................
+            doc.getElementById('imagePage').src = imagen;
+            updateElement('namePage', name);
+            updateElement('precioPage', precio);
+            updateElement('comentarioPage', comentario);
+            updateElement('editorialPage', editorial);
+            updateElement('autorPage', autor);
+            updateElement('fechaPage', fecha);
+            updateElement('paginasPage', paginas);
+            updateElement('tamañoPage', tamaño);
+            updateElement('formatoPage', formato);
 
             const nuevoHTML = new XMLSerializer().serializeToString(doc);
-
             document.body.innerHTML = nuevoHTML;
 
-            
-    })
-    .catch((error)=> {
-        console.error(`Error al cargar los datos : ${error}`);
 
-    });
-
-    
-
-}
+            createAddToCartButton(id, name, precio, imagen);
+        })
+        .catch((error) => {
+            console.error(`Error al cargar los datos : ${error}`);
+        });
+};
+window.agregarAlCarrito = (id, name, precio, imagen) => {
+    console.log(`Datos del cómic: ID: ${id}, Nombre: ${name}, Precio: ${precio}, Imagen: ${imagen}`);
+};
