@@ -3,9 +3,6 @@ import { enviarDatos , botonAgregarCarrito} from "./detallesComic.js";
 
 export let carrito  = JSON.parse(localStorage.getItem("carrito")) || [];
 
-const verCarrito = document.getElementById("verCarrito");
-const modalContainer = document.getElementById("modal-container");
-
 /*-------MAP-MUESTEA COMPLETA--------*/
 const createCard = (result = [], containerId) => {
     let comicsRow = document.getElementById(containerId);
@@ -119,27 +116,6 @@ getComics()
     .catch(error => console.log(error));
 
 
-/*-------Ver carrito---*/
-
-verCarrito.addEventListener("click", () =>{
-    const modalHeader = document.createElement("div");
-    modalHeader.className = "modal-header";
-    modalHeader.innerHTML = `
-    <h1 class ="modal-header-title">Carrito.</h1>
-    `;
-    modalContainer.append(modalHeader);
-
-    const modalbutton = document.createElement ("h3")
-    modalbutton.innerText = "x";
-    modalbutton.className = "modal-header-button";
-
-    modalbutton.addEventListener("click", ()=>{
-        modalContainer.style.display = "none";
-    })
-
-    modalHeader.append(modalbutton);
-
-});
 
 
 
