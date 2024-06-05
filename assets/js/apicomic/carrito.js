@@ -7,14 +7,14 @@ const cargarCarrito = () => {
 const createCarro = (name, precio, imagen) => {
     return `
     <div class="container1">
-        <div class="item1">
-            <img src="${imagen}" alt="Imagen" class="item1-image">
+        <div class="carro">
+            <img src="${imagen}" alt="Imagen" class="imagenCarro">
         </div>
-        <div class="item1">
-            <h2 class="item1-name">${name}</h2>
+        <div class="carro">
+            <h2 class="carro-name">${name}</h2>
         </div>
-        <div class="item1">
-            <p class="item1-text">${precio}</p>
+        <div class="carro">
+            <p class="carro-text">${precio}</p>
         </div>
     </div>
     `;
