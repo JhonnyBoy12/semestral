@@ -1,4 +1,14 @@
-export const createAddToCartButton = (id, name, precio, imagen) => {
+import { carrito } from "./index.js";
+
+//set item local storage
+
+const saveLocal = () => {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    };
+//-------------------------------------------------------------
+
+
+export const botonAgregarCarrito = (id, name, precio, imagen) => {
     const button = document.createElement("button");
     button.classList.add("rounded-5", "w-50", "p-2", "fs-6");
     button.style.backgroundColor = "#7C7C7C";
@@ -15,11 +25,12 @@ export const createAddToCartButton = (id, name, precio, imagen) => {
     
 };
 
+
 const agregarAlCarrito = (id, name, precio, imagen) => {
     const comic = { id, name, precio, imagen };
-    console.log(`Comic agregado al carrito:`, comic);
-    console.log("el Jhonny se la come");
-    
+    carrito.push(comic);
+    console.log(carrito);
+    saveLocal();
 };
 
 
@@ -54,12 +65,9 @@ export const enviarDatos = (series, id, name, precio, tipo, imagen, comentario, 
             document.body.innerHTML = nuevoHTML;
 
 
-            createAddToCartButton(id, name, precio, imagen);
+            botonAgregarCarrito(id, name, precio, imagen);
         })
         .catch((error) => {
             console.error(`Error al cargar los datos : ${error}`);
         });
-};
-window.agregarAlCarrito = (id, name, precio, imagen) => {
-    console.log(`Datos del cómic: ID: ${id}, Nombre: ${name}, Precio: ${precio}, Imagen: ${imagen}`);
 };

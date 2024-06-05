@@ -1,7 +1,10 @@
 import { getComics } from "./getComics.js";
-import { enviarDatos , createAddToCartButton} from "./detallesComic.js";
+import { enviarDatos , botonAgregarCarrito} from "./detallesComic.js";
 
- 
+export let carrito  = JSON.parse(localStorage.getItem("carrito")) || [];
+
+const verCarrito = document.getElementById("verCarrito");
+const modalContainer = document.getElementById("modal-container");
 
 /*-------MAP-MUESTEA COMPLETA--------*/
 const createCard = (result = [], containerId) => {
@@ -43,7 +46,7 @@ const createCard = (result = [], containerId) => {
         btnVer.textContent = "Ver más";
         btnVer.addEventListener("click", () => {
             enviarDatos(series, id, name, precio, tipo, imagen, comentario, editorial, autor, fecha, paginas, tamaño, formato);
-            createAddToCartButton(id, name, precio, imagen);
+
         });
 
         divBody.appendChild(title);
@@ -138,15 +141,5 @@ verCarrito.addEventListener("click", () =>{
 
 });
 
-
-//set item local storage
-
-const saveLocal = () => {
-localStorage.setItem("carrito", JSON.stringify(carrito));
-};
-
-//get item local storage
-
-JSON.parse(localStorage.getItem("carrito"))
 
 
